@@ -11,7 +11,8 @@
     "test:watch": "jest --watch",
     "lint": "ng lint",
     "commit": "git-cz",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check ."
   },
   "private": true,
   "dependencies": {
