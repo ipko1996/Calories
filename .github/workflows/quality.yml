@@ -5,8 +5,9 @@ on:
   - pull_request
 
 jobs:
-  setup:
+  quality-checks:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,19 +20,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-  quality-checks:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - name: Run prettier
         run: pnpm run prettier:check
 
       - name: Run eslint
         run: pnpm run lint
 
-  tests:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
       - name: Run tests
         run: pnpm run test
